@@ -1,0 +1,53 @@
+@import "./styles/fonts.css";
+@import "./styles/colors.css";
+@import "./styles/theme.css";
+@import "./styles/typography.css";
+
+/* css reset gotten from https://www.joshwcomeau.com/css/custom-css-reset/
+and https://www.youtube.com/watch?v=2lyDv0wOQuQ */
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  font: inherit;
+}
+
+img,
+picture,
+video,
+canvas,
+svg {
+  display: block;
+  max-width: 100%;
+}
+
+input,
+button,
+textarea,
+select {
+  font: inherit;
+}
+
+html, body, #app {
+  height: 100%;
+  width: 100%;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+}
+
+body {
+  font-family: var(--font-family);
+  color: var(--default-text-color);
+}
+
+
+#app {
+  isolation: isolate;
+}
