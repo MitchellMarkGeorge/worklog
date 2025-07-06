@@ -63,6 +63,13 @@ export const Enhanced: Story = {
   },
 };
 
+export const Tooltip: Story = {
+  args: {
+    variant: "primary",
+    tooltip: "Tooltip text",
+  },
+};
+
 export const Icon: Story = {
   args: {
     variant: "primary",

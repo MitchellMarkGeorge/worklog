@@ -57,3 +57,10 @@ export const Ghost: Story = {
     variant: "ghost",
   },
 };
+
+export const Tooltip: Story = {
+  args: {
+    variant: "ghost",
+    tooltip: "Tooltip",
+  },
+};

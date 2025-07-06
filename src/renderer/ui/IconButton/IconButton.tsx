@@ -3,6 +3,7 @@ import styles from "./IconButton.module.css";
 import { LucideIcon } from "lucide-react";
 import { forwardRef } from "react";
 import { Button as HeadlessButton } from "@headlessui/react";
+import { Tooltip, TooltipTrigger, TooltipContent } from "../Tooltip";
 
 const iconButtonVariants = cva(styles.iconButton, {
   variants: {
@@ -29,16 +30,40 @@ export interface IconButtonProps
   extends React.ButtonHTMLAttributes<HTMLButtonElement>,
     VariantProps<typeof iconButtonVariants> {
   icon: LucideIcon;
+  tooltip?: React.ReactNode;
   // loading?: boolean
 }
 
 export const IconButton = forwardRef<HTMLButtonElement, IconButtonProps>(
-  ({ className, variant, size = "default", icon: Icon, ...props }, ref) => {
-    const iconButtonClassNames = iconButtonVariants({ variant, size, className });
+  (
+    { className, variant, size = "default", icon: Icon, tooltip, ...props },
+    ref,
+  ) => {
+    const iconButtonClassNames = iconButtonVariants({
+      variant,
+      size,
+      className,
+    });
+
+    const iconContent = (
+        <Icon className={styles.icon} />
+    );
+
+    if (tooltip) {
+      return (
+        <Tooltip>
+          <TooltipTrigger className={iconButtonClassNames} {...props} ref={ref}>
+            {iconContent}
+          </TooltipTrigger>
+          <TooltipContent>{tooltip}</TooltipContent>
+        </Tooltip>
+      );
+    }
+
     return (
       <HeadlessButton className={iconButtonClassNames} ref={ref} {...props}>
-        <Icon className={styles.icon} />
+        {iconContent}
       </HeadlessButton>
     );
-  }
+  },
 );

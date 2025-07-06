@@ -46,3 +46,9 @@ export const Large: Story = {
   },
 };
 
+export const Tooltip: Story = {
+  args: {
+    tooltip: "Enhance",
+  },
+};
+

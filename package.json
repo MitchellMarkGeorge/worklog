@@ -57,6 +57,7 @@
     "typescript": "~4.5.4"
   },
   "dependencies": {
+    "@floating-ui/react": "^0.27.13",
     "@headlessui/react": "^2.2.4",
     "class-variance-authority": "^0.7.1",
     "classnames": "^2.5.1",

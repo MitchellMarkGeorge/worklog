@@ -9,8 +9,10 @@
     --default-text-color: var(--gray-800);
 
     --background-color: var(--gray-50);
-    --background-color-hover: var(--gray-300);
+    --background-color-hover: var(--gray-200);
     --outline-color: var(--gray-300);
+    
+    --border-radius: 0.5rem;
 
     /* get the actual variables for this */
     --enhanced-gradient: linear-gradient(
@@ -20,7 +22,7 @@
     );
 }
 
-[data-theme="dark"]{
+[data-theme="dark"] {
     --primary-color: var(--gray-50);
     --primary-hover-color: var(--gray-300);
 
