@@ -1,9 +1,13 @@
 import { cva, type VariantProps } from "class-variance-authority";
 import styles from "./Button.module.css";
 import { LucideIcon } from "lucide-react";
-import { forwardRef } from "react";
-import { Button as HeadlessButton } from "@headlessui/react";
-import { Tooltip, TooltipTrigger, TooltipContent } from "../Tooltip";
+import React, { forwardRef } from "react";
+import {
+  Button as ReactAriaButton,
+  ButtonProps as ReactAriaButtonProps,
+  TooltipTrigger,
+} from "react-aria-components";
+import { Tooltip } from "../Tooltip";
 
 const buttonVariants = cva(styles.button, {
   variants: {
@@ -27,7 +31,7 @@ const buttonVariants = cva(styles.button, {
 });
 
 export interface ButtonProps
-  extends React.ButtonHTMLAttributes<HTMLButtonElement>,
+  extends ReactAriaButtonProps,
     VariantProps<typeof buttonVariants> {
   icon?: LucideIcon;
   tooltip?: React.ReactNode;
@@ -48,26 +52,22 @@ export const Button = forwardRef<HTMLButtonElement, ButtonProps>(
     ref,
   ) => {
     const buttonClassNames = buttonVariants({ variant, size, className });
-    const buttonContent = (
-      <>
-        {Icon && <Icon className={styles.icon} />}
-        {children}
-      </>
+    const button = (
+      <ReactAriaButton className={buttonClassNames} {...props} ref={ref}>
+        <>
+          {Icon && <Icon className={styles.icon} />}
+          {children}
+        </>
+      </ReactAriaButton>
     );
     if (tooltip) {
       return (
-        <Tooltip>
-          <TooltipTrigger className={buttonClassNames} {...props} ref={ref}>
-            {buttonContent}
-          </TooltipTrigger>
-          <TooltipContent>{tooltip}</TooltipContent>
-        </Tooltip>
+        <TooltipTrigger delay={0}>
+          {button}
+          <Tooltip>{tooltip}</Tooltip>
+        </TooltipTrigger>
       );
     }
-    return (
-      <HeadlessButton className={buttonClassNames} {...props} ref={ref}>
-        {buttonContent}
-      </HeadlessButton>
-    );
-  },
+    return button;
+  }
 );
