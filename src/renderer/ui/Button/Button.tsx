@@ -1,7 +1,7 @@
 import { cva, type VariantProps } from "class-variance-authority";
 import styles from "./Button.module.css";
 import { LucideIcon } from "lucide-react";
-import React, { forwardRef } from "react";
+import { forwardRef } from "react";
 import {
   Button as ReactAriaButton,
   ButtonProps as ReactAriaButtonProps,

@@ -4,7 +4,7 @@ import utils from "../utils/utils";
 
 export class WorklogApplication {
   private static instance: WorklogApplication;
-  private hasStarted: boolean;
+  private hasStarted = false;
   private windowService: WindowService;
 
   static getInstance(): WorklogApplication {
