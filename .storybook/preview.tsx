@@ -1,5 +1,7 @@
+import React from "react";
 import type { Preview } from "@storybook/react";
 import { useEffect } from "react";
+// @ts-ignore
 import styles from "./preview.module.css";
 
 import "../src/renderer/index.css";
