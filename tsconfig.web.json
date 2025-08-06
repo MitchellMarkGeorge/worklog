@@ -4,6 +4,10 @@
   "include": ["src/renderer/env.d.ts", "src/renderer/**/*"],
   "compilerOptions": {
     "composite": true,
+    "target": "ES2022",
+    "module": "ES2022",
+    "skipLibCheck": true,
+    "moduleResolution": "bundler",
     "lib": ["ESNext", "DOM", "DOM.Iterable"],
     "jsx": "react-jsx",
     "baseUrl": ".",

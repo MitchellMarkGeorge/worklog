@@ -3,7 +3,11 @@
   "extends": "./tsconfig.json",
   "compilerOptions": {
     "types": ["node"],
-    "strict": true
+    "target": "ES2022",
+    "strict": true,
+    "skipLibCheck": true,
+    "module": "preserve",
+    "moduleResolution": "bundler"
   },
   "include": ["src/main/**/*", "src/preload/**/*"]
 }
