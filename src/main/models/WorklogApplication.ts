@@ -4,7 +4,7 @@ import utils from "../utils/utils";
 
 export class WorklogApplication {
   private static instance: WorklogApplication;
-  private hasStarted: boolean;
+  private hasStarted = false;
   private windowService: WindowService;
 
   static getInstance(): WorklogApplication {
@@ -42,28 +42,28 @@ export class WorklogApplication {
           }
         });
       }
-      
+
       this.instance = new WorklogApplication();
       return this.instance;
     }
   }
-  
+
   public start() {
     if (!this.hasStarted) {
-      this.windowService.openNewWindow()
+      this.windowService.openNewWindow();
       this.hasStarted = true;
     } else {
       throw new Error("WorklogApplication already launched");
     }
   }
-  
+
   private handleAppListeners() {
     app.on("activate", () => {
       if (!this.windowService.hasWindows()) {
         this.windowService.openNewWindow();
       }
     });
-    
+
     app.on("window-all-closed", () => {
       if (!utils.isMac) {
         app.quit();

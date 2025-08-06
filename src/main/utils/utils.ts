@@ -6,6 +6,7 @@ const isLinux = process.platform === "linux";
 const isDarkMode = nativeTheme.shouldUseDarkColors;
 const lightBackgroundColor = "#FAFAFA";
 const darkBackgroundColor = "#171717";
+// for now
 const getWindowBackgroundColor = () => isDarkMode ? darkBackgroundColor : lightBackgroundColor;
 
 export default {

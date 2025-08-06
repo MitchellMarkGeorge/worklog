@@ -1,0 +1,13 @@
+{
+  "$schema": "https://json.schemastore.org/tsconfig",
+  "extends": "./tsconfig.json",
+  "compilerOptions": {
+    "types": ["node"],
+    "target": "ES2022",
+    "strict": true,
+    "skipLibCheck": true,
+    "module": "preserve",
+    "moduleResolution": "bundler"
+  },
+  "include": ["src/main/**/*", "src/preload/**/*"]
+}
