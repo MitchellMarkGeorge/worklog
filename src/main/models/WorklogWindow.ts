@@ -1,9 +1,11 @@
 import { BrowserWindow, shell } from "electron";
 import { constants } from "../utils/constants";
-import isDev from "electron-is-dev";
 import utils from "../utils/utils";
 import { format } from "node:url";
 import { join } from "node:path";
+import { app } from "electron";
+
+const isDev = !app.isPackaged;
 
 export class WorklogWindow {
   public browserWindow: BrowserWindow;
