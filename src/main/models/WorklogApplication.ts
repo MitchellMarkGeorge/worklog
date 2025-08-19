@@ -1,4 +1,5 @@
 import { WindowService } from "../services/window";
+import { VaultService } from "../services/vault";
 import { app } from "electron";
 import utils from "../utils/utils";
 
@@ -6,6 +7,7 @@ export class WorklogApplication {
   private static instance: WorklogApplication;
   private hasStarted = false;
   private windowService: WindowService;
+  private vaultService: VaultService;
 
   static getInstance(): WorklogApplication {
     if (!this.instance) {
@@ -17,6 +19,7 @@ export class WorklogApplication {
   private constructor() {
     // Initialize the application
     this.windowService = new WindowService();
+    this.vaultService = new VaultService();
     this.handleAppListeners();
   }
 
